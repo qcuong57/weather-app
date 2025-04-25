@@ -2,9 +2,36 @@ import { Card, Grid, Group, Text, Badge } from "@mantine/core";
 import { IconDroplet } from "@tabler/icons-react";
 import { useMantineTheme } from "@mantine/core";
 import { WeatherIcon } from "./WeatherIcon";
+import { useLanguage } from "../../context/LanguageContext"; // Adjust path as needed
 
 export function ForecastList({ forecast, formatTemp, tempUnit }) {
   const theme = useMantineTheme();
+  const { language, t } = useLanguage();
+
+  // Helper function to translate weather conditions
+  const translateCondition = (condition) => {
+    if (!condition) return "";
+
+    const weatherKeys = {
+      Clear: "clearSky",
+      "Clear Sky": "clearSky",
+      Clouds: "cloudy",
+      "Few Clouds": "fewClouds",
+      "Scattered Clouds": "partlyCloudy",
+      "Broken Clouds": "brokenClouds",
+      "Overcast Clouds": "overcastClouds",
+      Rain: "moderateRain",
+      "Light Rain": "lightRain",
+      "Moderate Rain": "moderateRain",
+      "Heavy Rain": "heavyRain",
+      Sunny: "sunny",
+      "Partly Cloudy": "partlyCloudy",
+      Cloudy: "cloudy",
+    };
+
+    const key = weatherKeys[condition] || condition;
+    return t(key);
+  };
 
   return (
     <div>
@@ -35,7 +62,7 @@ export function ForecastList({ forecast, formatTemp, tempUnit }) {
                   </div>
                   <div>
                     <Text weight={700} size="lg">
-                      {day.day}
+                      {index === 0 ? t("today") : day.day}
                     </Text>
                     <Text size="sm" color="dimmed">
                       {day.date}
@@ -59,16 +86,14 @@ export function ForecastList({ forecast, formatTemp, tempUnit }) {
                       }
                       mt={4}
                     >
-                      {day.condition}
+                      {translateCondition(day.condition)}
                     </Badge>
                   </div>
                 </Group>
               </Grid.Col>
 
-              {/* Hourly Forecast */}
               <Grid.Col span={12} md={9}>
                 <div style={{ overflowX: "auto" }}>
-                  {/* Use Group here instead of div to apply noWrap */}
                   <Group
                     spacing="xl"
                     noWrap

@@ -24,7 +24,15 @@ const translations = {
     error: "Error",
     loading: "Loading...",
     noData: "No data available",
-    weatherForecast: "Weather Forecast"
+    weatherForecast: "Weather Forecast",
+    noCityMessage: "Please enter a city to get the weather.",
+    overcastClouds: "Overcast Clouds",
+    brokenClouds: "Broken Clouds",
+    lightRain: "Light Rain",
+    moderateRain: "Moderate Rain",
+    heavyRain: "Heavy Rain",
+    clearSky: "Clear Sky",
+    fewClouds: "Few Clouds",
   },
   vi: {
     yourCity: "Nhập tên thành phố",
@@ -47,7 +55,15 @@ const translations = {
     error: "Lỗi",
     loading: "Đang tải...",
     noData: "Không có dữ liệu",
-    weatherForecast: "Dự Báo Thời Tiết"
+    weatherForecast: "Dự Báo Thời Tiết",
+    noCityMessage: "Vui lòng nhập tên thành phố để xem thời tiết.",
+    overcastClouds: "Mây u ám",
+    brokenClouds: "Mây đổ vỡ",
+    lightRain: "Mưa nhẹ",
+    moderateRain: "Mưa vừa",
+    heavyRain: "Mưa to",
+    clearSky: "Trời quang đãng",
+    fewClouds: "Ít mây",
   },
 }
 

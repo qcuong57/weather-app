@@ -114,9 +114,9 @@ export function formatDate(timestamp, timezoneOffset = 0) {
       description: apiData.current.weather[0].description,
       icon: apiData.current.weather[0].icon,
       humidity: apiData.current.main.humidity,
-      windSpeed: Math.round(apiData.current.wind.speed * 3.6), // Convert m/s to km/h
+      windSpeed: Math.round(apiData.current.wind.speed * 3.6),
       pressure: apiData.current.main.pressure,
-      visibility: Math.round(apiData.current.visibility / 1000), // Convert m to km
+      visibility: Math.round(apiData.current.visibility / 1000), 
       date: formatDate(apiData.current.dt * 1000),
       time: formatTime(apiData.current.dt * 1000),
       sunrise: formatTime(apiData.current.sys.sunrise * 1000),

@@ -1,28 +1,37 @@
-"use client"
+import { TextInput, Button } from "@mantine/core";
+import { useLanguage } from "../../context/LanguageContext";
 
-import { TextInput, Button } from "@mantine/core"
-import { IconSearch } from "@tabler/icons-react"
-import { useLanguage } from "../../context/LanguageContext"
-
-export function SearchBar({ searchQuery, setSearchQuery, handleSearch, loading }) {
-  const { t } = useLanguage()
+export function SearchBar({
+  searchQuery,
+  setSearchQuery,
+  handleSearch,
+  loading,
+}) {
+  const { t } = useLanguage();
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSearch} className="w-full">
       <TextInput
-        icon={<IconSearch size={18} />}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={t("yourCity")}
+        size="lg"
+        radius="md"
+        mb="lg"
+        className="w-full"
         rightSection={
-          <Button type="submit" loading={loading} sx={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}>
+          <Button
+            type="submit"
+            loading={loading}
+            size="sm"
+            radius="md"
+            className="bg-blue-500 hover:bg-blue-600 text-white"
+          >
             {t("search")}
           </Button>
         }
-        size="md"
-        radius="md"
-        mb="lg"
+        rightSectionWidth={110}
       />
     </form>
-  )
+  );
 }

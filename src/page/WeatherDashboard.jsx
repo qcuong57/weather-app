@@ -1,9 +1,17 @@
-import { Container, Group, Title, ActionIcon, Card, Text } from "@mantine/core";
+import {
+  Container,
+  Group,
+  Title,
+  ActionIcon,
+  Card,
+  Text,
+  LoadingOverlay,
+  Box,
+} from "@mantine/core";
 import { useMantineTheme, useMantineColorScheme } from "@mantine/core";
 import { useLanguage } from "../context/LanguageContext";
 import { ThemeToggle } from "../components/UI/ThemeToggle";
 import { LanguageToggle } from "../components/UI/LanguageToggle";
-import { LoadingState } from "../components/Weather/LoadingState";
 import { SearchBar } from "../components/Weather/SearchBar";
 import { CurrentWeather } from "../components/Weather/CurrentWeather";
 import { ForecastList } from "../components/Weather/ForecastList";
@@ -55,6 +63,7 @@ export function WeatherDashboard() {
             radius="xl"
             size="lg"
             onClick={toggleTempUnit}
+            title={t("temperature")}
           >
             {tempUnit}°
           </ActionIcon>
@@ -70,43 +79,48 @@ export function WeatherDashboard() {
         loading={loading}
       />
 
-      {hasSearched && error && (
-        <Card
-          withBorder
-          p="md"
-          radius="md"
-          mb="lg"
-          sx={{
-            backgroundColor: isDark ? theme.colors.red[9] : theme.colors.red[0],
-            color: isDark ? theme.white : theme.colors.red[9],
-          }}
-        >
-          {error}
-        </Card>
-      )}
+      {/* Overlay for loading state */}
+      <Box pos="relative" mt="xl">
+        <LoadingOverlay visible={loading} zIndex={1000} overlayBlur={2} />
 
-      {loading && <LoadingState />}
+        {hasSearched && error && (
+          <Card
+            withBorder
+            p="md"
+            radius="md"
+            mb="lg"
+            sx={{
+              backgroundColor: isDark
+                ? theme.colors.red[9]
+                : theme.colors.red[0],
+              color: isDark ? theme.white : theme.colors.red[9],
+            }}
+          >
+            {t("error")}: {error}
+          </Card>
+        )}
 
-      {hasSearched && weatherData && !error && (
-        <>
-          <CurrentWeather
-            weatherData={weatherData}
-            formatTemp={formatTemp}
-            tempUnit={tempUnit}
-          />
-          <ForecastList
-            forecast={weatherData.forecast}
-            formatTemp={formatTemp}
-            tempUnit={tempUnit}
-          />
-        </>
-      )}
+        {hasSearched && weatherData && !error && !loading && (
+          <>
+            <CurrentWeather
+              weatherData={weatherData}
+              formatTemp={formatTemp}
+              tempUnit={tempUnit}
+            />
+            <ForecastList
+              forecast={weatherData.forecast}
+              formatTemp={formatTemp}
+              tempUnit={tempUnit}
+            />
+          </>
+        )}
 
-      {!hasSearched && !loading && (
-        <Text align="center" mt="xl" color="dimmed">
-          Please enter a city to get the weather.
-        </Text>
-      )}
+        {!hasSearched && !loading && (
+          <Text align="center" mt="xl" color="dimmed">
+            {t("noCityMessage")}
+          </Text>
+        )}
+      </Box>
     </Container>
   );
 }
