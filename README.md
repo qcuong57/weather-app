@@ -1,12 +1,62 @@
-# React + Vite
+# Weather Forecast App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern weather forecast application built with **ReactJS**, **Mantine UI**, and **TailwindCSS**.  
+Users can easily search for any city's weather, view detailed forecasts by hour and day, and switch between languages.
 
-Currently, two official plugins are available:
+> Live Demo: [https://vercel.com/quoc-cuongs-projects/weather-app](https://vercel.com/quoc-cuongs-projects/weather-app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- City-based weather search.
+- Hourly and daily forecast display.
+- Language switching (English 🇬🇧 / Vietnamese 🇻🇳).
+- Light/Dark theme toggle.
+- Responsive design for all devices.
+- Fast performance with Vite and optimized assets.
+
+---
+
+## Technologies Used
+
+- [ReactJS](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Mantine UI](https://mantine.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
+
+---
+
+
+## Main Features
+
+- Search weather by city name
+- View hourly and daily weather forecasts
+- Light and dark theme switching
+- Language support: English 🇬🇧 / Vietnamese 🇻🇳
+- Responsive design across devices
+- Fast loading with Vite
+
+---
+
+## Installation Guide
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/weather-app.git
+cd weather-app
+```
+
+### 2. Clone the Repository
+
+```bash
+npm install
+```
+### 3. Run the Development Server
+
+```bash
+npm run dev
+```
+
