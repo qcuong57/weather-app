@@ -3,7 +3,7 @@
 A modern weather forecast application built with **ReactJS**, **Mantine UI**, and **TailwindCSS**.  
 Users can easily search for any city's weather, view detailed forecasts by hour and day, and switch between languages.
 
-> Live Demo: [https://vercel.com/quoc-cuongs-projects/weather-app](https://vercel.com/quoc-cuongs-projects/weather-app)
+> Live Demo: [https://vercel.com/quoc-cuongs-projects/weather-app](https://weather-app-zeta-steel-48.vercel.app/)
 
 ---
 
